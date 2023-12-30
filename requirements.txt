@@ -1,3 +1,4 @@
 streamlit
 tqdm
 click
+opencv-python

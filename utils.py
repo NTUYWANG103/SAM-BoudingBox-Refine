@@ -73,8 +73,6 @@ def find_minimal_rectangles(masks):
 
     return minimal_rectangles
 
-
-
 # Function to draw bounding boxes on an image
 def draw_bounding_boxes(image_path, labels):
     image = cv2.imread(image_path)
