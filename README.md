@@ -4,7 +4,7 @@ This repository contains a Python script for refining bounding boxes in datasets
 ![demo_img](datasets/demo_img.png)
 
 # Environment
-My environment uses python 3.9 with cuda11.3
+My environment uses python 3.9 with cuda 11.3
 ```
 pip install torch==1.12.1+cu113 torchvision==0.13.1+cu113 torchaudio==0.12.1 --extra-index-url https://download.pytorch.org/whl/cu113
 pip install git+https://github.com/facebookresearch/segment-anything.git
