@@ -75,7 +75,7 @@ def find_minimal_rectangles(masks):
 
 # Function to draw bounding boxes on an image
 def draw_bounding_boxes(image_path, labels):
-    image = cv2.imread(image_path)
+    image = cv2.cvtColor(cv2.imread(image_path), cv2.COLOR_BGR2RGB)
     for label in labels:
         _, x_center, y_center, width, height = label
         x_min, y_min, x_max, y_max = yolo_to_coords((x_center, y_center, width, height), image.shape)
