@@ -57,7 +57,7 @@ def refine_bounding_boxes(image_dir, label_dir, refined_label_dir, checkpoint, m
                 multimask_output=False,
             )
 
-            minimal_rectangles = find_minimal_rectangles(masks[0].cpu().numpy())
+            minimal_rectangles = find_minimal_rectangles(masks.squeeze(1).cpu().numpy())
             yolo_bboxes = coords_to_yolo(minimal_rectangles, image_shape)
 
         # Save refined labels
