@@ -40,22 +40,25 @@ def refine_bounding_boxes(image_dir, label_dir, refined_label_dir, checkpoint, m
         labels = read_yolo_label(label_path)
         input_boxes = []
 
-        for label in labels:
-            class_id, x_center, y_center, width, height = label
-            rect_coords = yolo_to_coords((x_center, y_center, width, height), image_shape)
-            input_boxes.append(rect_coords)
+        if len(labels) == 0:
+            yolo_bboxes = []
+        else:
+            for label in labels:
+                class_id, x_center, y_center, width, height = label
+                rect_coords = yolo_to_coords((x_center, y_center, width, height), image_shape)
+                input_boxes.append(rect_coords)
 
-        input_boxes = torch.tensor(input_boxes, device=predictor.device)
-        transformed_boxes = predictor.transform.apply_boxes_torch(input_boxes, image.shape[:2])
-        masks, _, _ = predictor.predict_torch(
-            point_coords=None,
-            point_labels=None,
-            boxes=transformed_boxes,
-            multimask_output=False,
-        )
+            input_boxes = torch.tensor(input_boxes, device=predictor.device)
+            transformed_boxes = predictor.transform.apply_boxes_torch(input_boxes, image.shape[:2])
+            masks, _, _ = predictor.predict_torch(
+                point_coords=None,
+                point_labels=None,
+                boxes=transformed_boxes,
+                multimask_output=False,
+            )
 
-        minimal_rectangles = find_minimal_rectangles(masks[0].cpu().numpy())
-        yolo_bboxes = coords_to_yolo(minimal_rectangles, image_shape)
+            minimal_rectangles = find_minimal_rectangles(masks[0].cpu().numpy())
+            yolo_bboxes = coords_to_yolo(minimal_rectangles, image_shape)
 
         # Save refined labels
         refined_label_path = os.path.join(refined_label_dir, os.path.splitext(image_name)[0] + '.txt')

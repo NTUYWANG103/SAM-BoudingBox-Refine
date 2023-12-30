@@ -22,3 +22,7 @@ python run.py --image_dir datasets/images --label_dir datasets/labels --refined_
 ```
 streamlit run visualization.py
 ```
+
+
+
+python run.py --image_dir /home/wangyuxi/codes/yolov7/datasets/apex/train/images --label_dir /home/wangyuxi/codes/yolov7/datasets/apex/train/labels --refined_label_dir /home/wangyuxi/codes/yolov7/datasets/apex/train/labels_refine --checkpoint sam_vit_h_4b8939.pth --model_type vit_h
