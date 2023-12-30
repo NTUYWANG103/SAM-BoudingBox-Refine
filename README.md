@@ -1,3 +1,8 @@
+# SAM-BoudingBox-Refine
+This repository contains a Python script for refining bounding boxes in datasets formatted for YOLO (You Only Look Once) object detection models. The script utilizes the advanced capabilities of the Segment Anything (SAM) model to enhance the accuracy of bounding boxes, aligning them more precisely with the objects in the images.
+
+![demo_img](datasets/demo_img.png)
+
 # Environment
 My environment uses python 3.9 with cuda11.3
 ```
@@ -23,6 +28,3 @@ python run.py --image_dir datasets/images --label_dir datasets/labels --refined_
 streamlit run visualization.py
 ```
 
-
-
-python run.py --image_dir /home/wangyuxi/codes/yolov7/datasets/apex/train/images --label_dir /home/wangyuxi/codes/yolov7/datasets/apex/train/labels --refined_label_dir /home/wangyuxi/codes/yolov7/datasets/apex/train/labels_refine --checkpoint sam_vit_h_4b8939.pth --model_type vit_h
