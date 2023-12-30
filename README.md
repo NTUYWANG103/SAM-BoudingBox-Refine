@@ -1,6 +1,7 @@
 # Environment
 ```
 pip install git+https://github.com/facebookresearch/segment-anything.git
+pip install -r requirements.txt
 ```
 
 # SAM Model Download
@@ -13,4 +14,4 @@ Click the links below to download the checkpoint for the corresponding model typ
 # Inference
 ```
 python run.py --image_dir datasets/images --label_dir datasets/labels --refined_label_dir datasets/labels_refine --checkpoint sam_vit_h_4b8939.pth --model_type vit_h
-``
+```
