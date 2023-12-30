@@ -59,13 +59,21 @@ def find_minimal_rectangles(masks):
         _, binary_mask = cv2.threshold(mask, 0.5, 255, cv2.THRESH_BINARY)
 
         contours, _ = cv2.findContours(binary_mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+
         if contours:
-            x, y, w, h = cv2.boundingRect(contours[0])
-            minimal_rectangles.append((x, y, x+w, y+h))
+            bounding_rects = [cv2.boundingRect(c) for c in contours]
+            x_min = min([x for x, y, w, h in bounding_rects])
+            y_min = min([y for x, y, w, h in bounding_rects])
+            x_max = max([x + w for x, y, w, h in bounding_rects])
+            y_max = max([y + h for x, y, w, h in bounding_rects])
+
+            minimal_rectangles.append((x_min, y_min, x_max, y_max))
         else:
-            minimal_rectangles.append(None)  # Append None if no contours are found
+            minimal_rectangles.append(None)
 
     return minimal_rectangles
+
+
 
 # Function to draw bounding boxes on an image
 def draw_bounding_boxes(image_path, labels):
