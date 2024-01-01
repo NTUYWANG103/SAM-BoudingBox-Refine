@@ -1,5 +1,5 @@
 # SAM-BoudingBox-Refine
-This repository contains a Python script for refining bounding boxes in datasets formatted for YOLO (You Only Look Once) object detection models. The script utilizes the advanced capabilities of the Segment Anything (SAM) model to enhance the accuracy of bounding boxes, aligning them more precisely with the objects in the images.
+This repository refines bounding boxes formatted for YOLO and utilizes the advanced capabilities of the Segment Anything (SAM) model to enhance the accuracy of these bounding boxes.
 
 ![demo_img](datasets/demo_img.png)
 
