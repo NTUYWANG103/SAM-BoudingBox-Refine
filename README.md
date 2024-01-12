@@ -28,7 +28,7 @@ python run.py --image_dir datasets/images --label_dir datasets/labels --refined_
 streamlit run visualization.py
 ```
 
-## Star History
+# Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=NTUYWANG103/SAM-BoudingBox-Refine&type=Date)](https://star-history.com/#NTUYWANG103/SAM-BoudingBox-Refine&Date)
 
